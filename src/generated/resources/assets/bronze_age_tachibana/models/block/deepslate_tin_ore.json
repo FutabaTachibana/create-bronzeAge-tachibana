@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "bronze_age_tachibana:block/deepslate_tin_ore"
+  }
+}

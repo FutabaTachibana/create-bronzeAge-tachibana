@@ -1,12 +1,10 @@
 package org.syju.bronze_age_tachibana.registry;
 
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,15 +23,21 @@ public class CreativeTabs {
             AllItems.BRONZE_INGOT,
             AllItems.BRONZE_NUGGET,
             AllItems.BRONZE_SHEET,
-            AllItems.BRONZE_SWORD,
+            AllItems.BRONZE_SHOVEL,
             AllItems.BRONZE_PICKAXE,
             AllItems.BRONZE_AXE,
-            AllItems.BRONZE_SHOVEL,
             AllItems.BRONZE_HOE,
+            AllItems.BRONZE_SWORD,
             AllItems.BRONZE_HELMET,
             AllItems.BRONZE_CHESTPLATE,
             AllItems.BRONZE_LEGGINGS,
-            AllItems.BRONZE_BOOTS
+            AllItems.BRONZE_BOOTS,
+            AllBlocks.TIN_ORE,
+            AllBlocks.DEEPSLATE_TIN_ORE,
+            AllBlocks.TIN_BLOCK,
+            AllBlocks.BRONZE_BLOCK,
+            AllBlocks.BRONZE_COGWHEEL,
+            AllBlocks.LARGE_BRONZE_COGWHEEL
     );
 
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "bronze_age_tachibana" namespace
