@@ -27,6 +27,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import org.syju.bronze_age_tachibana.registry.AllBlocks;
 import org.syju.bronze_age_tachibana.registry.AllItems;
 import org.syju.bronze_age_tachibana.registry.CreativeTabs;
 
@@ -60,6 +61,7 @@ public class BronzeAgeTachibana {
         // Register items and block
         REGISTRATE.registerEventListeners(modEventBus);
         AllItems.initialize();
+        AllBlocks.initialize();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

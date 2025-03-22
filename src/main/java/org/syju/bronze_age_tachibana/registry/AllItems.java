@@ -1,10 +1,10 @@
 package org.syju.bronze_age_tachibana.registry;
 
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.*;
 import org.syju.bronze_age_tachibana.Tiers;
 
+import static com.simibubi.create.AllTags.forgeItemTag;
 import static org.syju.bronze_age_tachibana.Tags.*;
 import static org.syju.bronze_age_tachibana.registry.Registrate.REGISTRATE;
 

@@ -1,4 +1,12 @@
 {
+  "block.bronze_age_tachibana.bronze_block": "Block of Bronze",
+  "block.bronze_age_tachibana.bronze_casing": "Bronze Casing",
+  "block.bronze_age_tachibana.bronze_cogwheel": "Bronze Cogwheel",
+  "block.bronze_age_tachibana.deepslate_tin_ore": "Deepslate Tin Ore",
+  "block.bronze_age_tachibana.large_bronze_cogwheel": "Large Bronze Cogwheel",
+  "block.bronze_age_tachibana.raw_tin_block": "Block of Raw Tin",
+  "block.bronze_age_tachibana.tin_block": "Block of Tin",
+  "block.bronze_age_tachibana.tin_ore": "Tin Ore",
   "item.bronze_age_tachibana.bronze_axe": "Bronze Axe",
   "item.bronze_age_tachibana.bronze_boots": "Bronze Boots",
   "item.bronze_age_tachibana.bronze_chestplate": "Bronze Chestplate",
