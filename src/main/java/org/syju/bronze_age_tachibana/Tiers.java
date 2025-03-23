@@ -10,7 +10,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeTier;
 
 import org.jetbrains.annotations.NotNull;
-import org.syju.bronze_age_tachibana.registry.AllItems;
+import org.syju.bronze_age_tachibana.registry.BronzeItems;
 
 import java.util.function.Supplier;
 
@@ -24,7 +24,7 @@ public class Tiers {
             2.0f,
             15,
             BlockTags.NEEDS_IRON_TOOL,
-            () -> Ingredient.of(AllItems.BRONZE_INGOT.get())
+            () -> Ingredient.of(BronzeItems.BRONZE_INGOT.get())
     );
     public static final Tier TIN = new ForgeTier(
             2,
@@ -33,7 +33,7 @@ public class Tiers {
             2.0f,
             15,
             BlockTags.NEEDS_IRON_TOOL,
-            () -> Ingredient.of(AllItems.TIN_INGOT.get())
+            () -> Ingredient.of(BronzeItems.TIN_INGOT.get())
     );
 
     // Define custom armor materials by `ArmorMaterial`
@@ -50,7 +50,7 @@ public class Tiers {
                 SoundEvents.ARMOR_EQUIP_IRON,
                 0.0f,
                 0.0f,
-                () -> Ingredient.of(AllItems.BRONZE_INGOT.get())
+                () -> Ingredient.of(BronzeItems.BRONZE_INGOT.get())
         ),
         TIN(
                 "tin",
@@ -60,7 +60,7 @@ public class Tiers {
                 SoundEvents.ARMOR_EQUIP_IRON,
                 0.0f,
                 0.0f,
-                () -> Ingredient.of(AllItems.BRONZE_INGOT.get())
+                () -> Ingredient.of(BronzeItems.BRONZE_INGOT.get())
         );
         private final String name;
         private final int durabilityMultiplier;

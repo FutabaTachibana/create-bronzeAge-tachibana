@@ -2,13 +2,10 @@ package org.syju.bronze_age_tachibana.registry;
 
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
-import com.simibubi.create.content.kinetics.simpleRelays.CogWheelBlock;
-import com.simibubi.create.content.kinetics.simpleRelays.CogwheelBlockItem;
 import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
-import com.simibubi.create.infrastructure.config.CStress;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.tags.BlockTags;
@@ -22,12 +19,13 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraftforge.common.Tags;
 import org.syju.bronze_age_tachibana.BronzeSpriteShifts;
 import org.syju.bronze_age_tachibana.content.block.BronzeCogWheelBlock;
+import org.syju.bronze_age_tachibana.content.block.BronzeCogwheelBlockItem;
 
 import static com.simibubi.create.foundation.data.BlockStateGen.simpleCubeAll;
 import static com.simibubi.create.foundation.data.TagGen.*;
 import static org.syju.bronze_age_tachibana.registry.Registrate.REGISTRATE;
 
-public class AllBlocks {
+public class BronzeBlocks {
     // Base block
     public static final BlockEntry<Block> TIN_BLOCK = REGISTRATE.block("tin_block", Block::new)
             .initialProperties(() -> Blocks.IRON_BLOCK)
@@ -67,7 +65,7 @@ public class AllBlocks {
             .transform(pickaxeOnly())
             .loot((lt, b) -> lt.add(b,
                     RegistrateBlockLootTables.createSilkTouchDispatchTable(b,
-                            lt.applyExplosionDecay(b, LootItem.lootTableItem(AllItems.RAW_TIN.get())
+                            lt.applyExplosionDecay(b, LootItem.lootTableItem(BronzeItems.RAW_TIN.get())
                                     .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))))))
             .tag(BlockTags.NEEDS_IRON_TOOL)
             .tag(Tags.Blocks.ORES)
@@ -84,7 +82,7 @@ public class AllBlocks {
             .transform(pickaxeOnly())
             .loot((lt, b) -> lt.add(b,
                     RegistrateBlockLootTables.createSilkTouchDispatchTable(b,
-                            lt.applyExplosionDecay(b, LootItem.lootTableItem(AllItems.RAW_TIN.get())
+                            lt.applyExplosionDecay(b, LootItem.lootTableItem(BronzeItems.RAW_TIN.get())
                                     .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))))))
             .tag(BlockTags.NEEDS_IRON_TOOL)
             .tag(Tags.Blocks.ORES)
@@ -114,18 +112,19 @@ public class AllBlocks {
             .register();
 
     // Cogwheel
-    public static final BlockEntry<CogWheelBlock> BRONZE_COGWHEEL = REGISTRATE.block("bronze_cogwheel", BronzeCogWheelBlock::small)
+    public static final BlockEntry<BronzeCogWheelBlock> BRONZE_COGWHEEL = REGISTRATE
+            .block("bronze_cogwheel", BronzeCogWheelBlock::small)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.sound(SoundType.METAL)
                     .mapColor(MapColor.METAL))
             .transform(pickaxeOnly())
             .blockstate(BlockStateGen.axisBlockProvider(false))
             .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-            .item(CogwheelBlockItem::new)
+            .item(BronzeCogwheelBlockItem::new)
             .build()
             .register();
 
-    public static final BlockEntry<CogWheelBlock> LARGE_BRONZE_COGWHEEL =
+    public static final BlockEntry<BronzeCogWheelBlock> LARGE_BRONZE_COGWHEEL =
             REGISTRATE.block("large_bronze_cogwheel", BronzeCogWheelBlock::large)
                     .initialProperties(SharedProperties::stone)
                     .properties(p -> p.sound(SoundType.METAL)
@@ -133,9 +132,25 @@ public class AllBlocks {
                     .transform(pickaxeOnly())
                     .blockstate(BlockStateGen.axisBlockProvider(false))
                     .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-                    .item(CogwheelBlockItem::new)
+                    .item(BronzeCogwheelBlockItem::new)
                     .build()
                     .register();
+
+    // Encased cogwheel
+//    public static final BlockEntry<EncasedCogwheelBlock> BRONZE_COGWHEEL = REGISTRATE
+//            .block("bronze_cogwheel", p -> new EncasedCogwheelBlock(p, false, AllBlocks.BRONZE_BLOCK))
+//            .properties(p -> p.sound(SoundType.METAL).mapColor(MapColor.METAL))
+//            .item()
+//            .build()
+//            .register();
+//
+//
+//    public static final BlockEntry<EncasedCogwheelBlock> LARGE_BRONZE_COGWHEEL = REGISTRATE
+//            .block("large_bronze_cogwheel", p -> new EncasedCogwheelBlock(p, true, AllBlocks.BRONZE_BLOCK))
+//            .properties(p -> p.sound(SoundType.METAL).mapColor(MapColor.METAL))
+//            .item()
+//            .build()
+//            .register();
 
 
     public static void initialize() { }

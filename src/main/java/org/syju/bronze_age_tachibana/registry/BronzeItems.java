@@ -8,7 +8,7 @@ import static com.simibubi.create.AllTags.forgeItemTag;
 import static org.syju.bronze_age_tachibana.Tags.*;
 import static org.syju.bronze_age_tachibana.registry.Registrate.REGISTRATE;
 
-public class AllItems {
+public class BronzeItems {
     // Basic items
     // Raw items
     public static final ItemEntry<Item>

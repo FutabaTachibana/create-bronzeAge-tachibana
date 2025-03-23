@@ -16,28 +16,28 @@ import java.util.List;
 public class CreativeTabs {
     private static final List<RegistryEntry> registerCreativeTabsItems = List.of(
             // Items and blocks...
-            AllItems.RAW_TIN,
-            AllItems.TIN_INGOT,
-            AllItems.TIN_NUGGET,
-            AllItems.TIN_SHEET,
-            AllItems.BRONZE_INGOT,
-            AllItems.BRONZE_NUGGET,
-            AllItems.BRONZE_SHEET,
-            AllItems.BRONZE_SHOVEL,
-            AllItems.BRONZE_PICKAXE,
-            AllItems.BRONZE_AXE,
-            AllItems.BRONZE_HOE,
-            AllItems.BRONZE_SWORD,
-            AllItems.BRONZE_HELMET,
-            AllItems.BRONZE_CHESTPLATE,
-            AllItems.BRONZE_LEGGINGS,
-            AllItems.BRONZE_BOOTS,
-            AllBlocks.TIN_ORE,
-            AllBlocks.DEEPSLATE_TIN_ORE,
-            AllBlocks.TIN_BLOCK,
-            AllBlocks.BRONZE_BLOCK,
-            AllBlocks.BRONZE_COGWHEEL,
-            AllBlocks.LARGE_BRONZE_COGWHEEL
+            BronzeItems.RAW_TIN,
+            BronzeItems.TIN_INGOT,
+            BronzeItems.TIN_NUGGET,
+            BronzeItems.TIN_SHEET,
+            BronzeItems.BRONZE_INGOT,
+            BronzeItems.BRONZE_NUGGET,
+            BronzeItems.BRONZE_SHEET,
+            BronzeItems.BRONZE_SHOVEL,
+            BronzeItems.BRONZE_PICKAXE,
+            BronzeItems.BRONZE_AXE,
+            BronzeItems.BRONZE_HOE,
+            BronzeItems.BRONZE_SWORD,
+            BronzeItems.BRONZE_HELMET,
+            BronzeItems.BRONZE_CHESTPLATE,
+            BronzeItems.BRONZE_LEGGINGS,
+            BronzeItems.BRONZE_BOOTS,
+            BronzeBlocks.TIN_ORE,
+            BronzeBlocks.DEEPSLATE_TIN_ORE,
+            BronzeBlocks.TIN_BLOCK,
+            BronzeBlocks.BRONZE_BLOCK,
+            BronzeBlocks.BRONZE_COGWHEEL,
+            BronzeBlocks.LARGE_BRONZE_COGWHEEL
     );
 
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "bronze_age_tachibana" namespace
@@ -48,7 +48,7 @@ public class CreativeTabs {
                 // Set name of tab to display
                 .title(Component.translatable("item_group." + BronzeAgeTachibana.MODID + ".bronze_age"))
                 // Set icon of creative tab
-                .icon(() -> new ItemStack(AllItems.BRONZE_INGOT.get()))
+                .icon(() -> new ItemStack(BronzeItems.BRONZE_INGOT.get()))
                 // Add default items to tab
                 .displayItems((params, output) -> {
                     registerCreativeTabsItems.forEach(registryEntry -> output.accept((ItemLike) registryEntry.get()));

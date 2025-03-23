@@ -2,10 +2,9 @@ package org.syju.bronze_age_tachibana;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -27,8 +26,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
-import org.syju.bronze_age_tachibana.registry.AllBlocks;
-import org.syju.bronze_age_tachibana.registry.AllItems;
+import org.syju.bronze_age_tachibana.registry.BronzeBlockEntityTypes;
+import org.syju.bronze_age_tachibana.registry.BronzeBlocks;
+import org.syju.bronze_age_tachibana.registry.BronzeItems;
 import org.syju.bronze_age_tachibana.registry.CreativeTabs;
 
 import static org.syju.bronze_age_tachibana.registry.Registrate.REGISTRATE;
@@ -60,8 +60,9 @@ public class BronzeAgeTachibana {
 
         // Register items and block
         REGISTRATE.registerEventListeners(modEventBus);
-        AllItems.initialize();
-        AllBlocks.initialize();
+        BronzeItems.initialize();
+        BronzeBlocks.initialize();
+        BronzeBlockEntityTypes.initialize();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -83,6 +84,10 @@ public class BronzeAgeTachibana {
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
 
+    }
+
+    public static ResourceLocation asResource(String path){
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
