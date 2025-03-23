@@ -1,6 +1,5 @@
 package org.syju.bronze_age_tachibana;
 
-import com.simibubi.create.Create;
 import com.simibubi.create.foundation.block.connected.AllCTTypes;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.CTSpriteShifter;
@@ -14,8 +13,8 @@ public class BronzeSpriteShifts {
     }
 
     private static CTSpriteShiftEntry getCT(CTType type, String blockTextureName, String connectedTextureName) {
-        return CTSpriteShifter.getCT(type, Create.asResource("block/" + blockTextureName),
-                Create.asResource("block/" + connectedTextureName + "_connected"));
+        return CTSpriteShifter.getCT(type, BronzeAgeTachibana.asResource("block/" + blockTextureName),
+                BronzeAgeTachibana.asResource("block/" + connectedTextureName + "_connected"));
     }
 
     private static CTSpriteShiftEntry getCT(CTType type, String blockTextureName) {
