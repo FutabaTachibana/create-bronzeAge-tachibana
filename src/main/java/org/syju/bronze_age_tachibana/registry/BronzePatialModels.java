@@ -11,4 +11,7 @@ public class BronzePatialModels {
     private static PartialModel block(String path) {
         return PartialModel.of(BronzeAgeTachibana.asResource("block/" + path));
     }
+    public static void init() {
+        // init static fields
+    }
 }
