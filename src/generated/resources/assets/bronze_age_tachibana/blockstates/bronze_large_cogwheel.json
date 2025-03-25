@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bronze_age_tachibana:block/bronze_large_cogwheel",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "bronze_age_tachibana:block/bronze_large_cogwheel"
+    },
+    "axis=z": {
+      "model": "bronze_age_tachibana:block/bronze_large_cogwheel",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

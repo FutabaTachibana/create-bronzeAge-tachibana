@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bronze_age_tachibana:large_bronze_cogwheel"
+          "name": "bronze_age_tachibana:bronze_large_cogwheel"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "bronze_age_tachibana:blocks/large_bronze_cogwheel"
+  "random_sequence": "bronze_age_tachibana:blocks/brass_encased_bronze_large_cogwheel"
 }

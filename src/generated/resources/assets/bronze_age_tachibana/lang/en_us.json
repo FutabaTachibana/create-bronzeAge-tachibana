@@ -1,9 +1,12 @@
 {
+  "item_group.bronze_age_tachibana.bronze_age": "Create: Bronze Age",
+  "block.bronze_age_tachibana.brass_encased_bronze_cogwheel": "Brass Encased Bronze Cogwheel",
+  "block.bronze_age_tachibana.brass_encased_bronze_large_cogwheel": "Brass Encased Bronze Large Cogwheel",
   "block.bronze_age_tachibana.bronze_block": "Block of Bronze",
   "block.bronze_age_tachibana.bronze_casing": "Bronze Casing",
   "block.bronze_age_tachibana.bronze_cogwheel": "Bronze Cogwheel",
+  "block.bronze_age_tachibana.bronze_large_cogwheel": "Bronze Large Cogwheel",
   "block.bronze_age_tachibana.deepslate_tin_ore": "Deepslate Tin Ore",
-  "block.bronze_age_tachibana.large_bronze_cogwheel": "Large Bronze Cogwheel",
   "block.bronze_age_tachibana.raw_tin_block": "Block of Raw Tin",
   "block.bronze_age_tachibana.tin_block": "Block of Tin",
   "block.bronze_age_tachibana.tin_ore": "Tin Ore",

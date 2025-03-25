@@ -7,6 +7,8 @@
     "bronze_age_tachibana:raw_tin_block",
     "bronze_age_tachibana:bronze_casing",
     "bronze_age_tachibana:bronze_cogwheel",
-    "bronze_age_tachibana:large_bronze_cogwheel"
+    "bronze_age_tachibana:bronze_large_cogwheel",
+    "bronze_age_tachibana:brass_encased_bronze_cogwheel",
+    "bronze_age_tachibana:brass_encased_bronze_large_cogwheel"
   ]
 }
