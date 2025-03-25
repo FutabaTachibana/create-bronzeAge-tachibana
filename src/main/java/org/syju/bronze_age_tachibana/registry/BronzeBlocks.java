@@ -1,13 +1,18 @@
 package org.syju.bronze_age_tachibana.registry;
 
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllSpriteShifts;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
+import com.simibubi.create.content.decoration.encasing.EncasingRegistry;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
+import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogCTBehaviour;
 import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.createmod.catnip.data.Couple;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +25,7 @@ import net.minecraftforge.common.Tags;
 import org.syju.bronze_age_tachibana.BronzeSpriteShifts;
 import org.syju.bronze_age_tachibana.content.block.BronzeCogWheelBlock;
 import org.syju.bronze_age_tachibana.content.block.BronzeCogwheelBlockItem;
+import org.syju.bronze_age_tachibana.content.block.EncasedBronzeCogwheelBlock;
 
 import static com.simibubi.create.foundation.data.BlockStateGen.simpleCubeAll;
 import static com.simibubi.create.foundation.data.TagGen.*;
@@ -124,8 +130,8 @@ public class BronzeBlocks {
             .build()
             .register();
 
-    public static final BlockEntry<BronzeCogWheelBlock> LARGE_BRONZE_COGWHEEL =
-            REGISTRATE.block("large_bronze_cogwheel", BronzeCogWheelBlock::large)
+    public static final BlockEntry<BronzeCogWheelBlock> BRONZE_LARGE_COGWHEEL =
+            REGISTRATE.block("bronze_large_cogwheel", BronzeCogWheelBlock::large)
                     .initialProperties(SharedProperties::stone)
                     .properties(p -> p.sound(SoundType.METAL)
                             .mapColor(MapColor.METAL))
@@ -137,20 +143,23 @@ public class BronzeBlocks {
                     .register();
 
     // Encased cogwheel
-//    public static final BlockEntry<EncasedCogwheelBlock> BRONZE_COGWHEEL = REGISTRATE
-//            .block("bronze_cogwheel", p -> new EncasedCogwheelBlock(p, false, AllBlocks.BRONZE_BLOCK))
-//            .properties(p -> p.sound(SoundType.METAL).mapColor(MapColor.METAL))
-//            .item()
-//            .build()
-//            .register();
-//
-//
-//    public static final BlockEntry<EncasedCogwheelBlock> LARGE_BRONZE_COGWHEEL = REGISTRATE
-//            .block("large_bronze_cogwheel", p -> new EncasedCogwheelBlock(p, true, AllBlocks.BRONZE_BLOCK))
-//            .properties(p -> p.sound(SoundType.METAL).mapColor(MapColor.METAL))
-//            .item()
-//            .build()
-//            .register();
+    public static final BlockEntry<EncasedBronzeCogwheelBlock> BRASS_ENCASED_BRONZE_COGWHEEL = REGISTRATE
+            .block("brass_encased_bronze_cogwheel", p -> new EncasedBronzeCogwheelBlock(p, false, AllBlocks.BRASS_CASING::get))
+            .properties(p -> p.mapColor(MapColor.TERRACOTTA_BROWN))
+            .transform(BuilderTransformers.encasedCogwheel("brass", () -> AllSpriteShifts.BRASS_CASING))
+            .transform(EncasingRegistry.addVariantTo(BronzeBlocks.BRONZE_COGWHEEL))
+            .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCogCTBehaviour(AllSpriteShifts.BRASS_CASING,
+                    Couple.create(AllSpriteShifts.BRASS_ENCASED_COGWHEEL_SIDE,
+                            AllSpriteShifts.BRASS_ENCASED_COGWHEEL_OTHERSIDE))))
+            .transform(pickaxeOnly())
+            .register();
+    public static final BlockEntry<EncasedBronzeCogwheelBlock> BRASS_ENCASED_BRONZE_LARGE_COGWHEEL = REGISTRATE
+            .block("brass_encased_bronze_large_cogwheel", p -> new EncasedBronzeCogwheelBlock(p, true, AllBlocks.BRASS_CASING::get))
+            .properties(p -> p.mapColor(MapColor.TERRACOTTA_BROWN))
+            .transform(BuilderTransformers.encasedLargeCogwheel("brass", () -> AllSpriteShifts.BRASS_CASING))
+            .transform(EncasingRegistry.addVariantTo(BronzeBlocks.BRONZE_LARGE_COGWHEEL))
+            .transform(pickaxeOnly())
+            .register();
 
 
     public static void initialize() { }

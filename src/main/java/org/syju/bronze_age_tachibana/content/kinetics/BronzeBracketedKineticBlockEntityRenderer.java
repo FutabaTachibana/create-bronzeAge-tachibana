@@ -35,7 +35,7 @@ public class BronzeBracketedKineticBlockEntityRenderer extends KineticBlockEntit
         if (VisualizationManager.supportsVisualization(be.getLevel()))
             return;
 
-        if (!BronzeBlocks.LARGE_BRONZE_COGWHEEL.has(be.getBlockState())) {
+        if (!BronzeBlocks.BRONZE_LARGE_COGWHEEL.has(be.getBlockState())) {
             super.renderSafe(be, partialTicks, ms, buffer, light, overlay);
             return;
         }

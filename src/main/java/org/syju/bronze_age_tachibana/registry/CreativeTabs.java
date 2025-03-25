@@ -37,7 +37,7 @@ public class CreativeTabs {
             BronzeBlocks.TIN_BLOCK,
             BronzeBlocks.BRONZE_BLOCK,
             BronzeBlocks.BRONZE_COGWHEEL,
-            BronzeBlocks.LARGE_BRONZE_COGWHEEL
+            BronzeBlocks.BRONZE_LARGE_COGWHEEL
     );
 
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "bronze_age_tachibana" namespace
