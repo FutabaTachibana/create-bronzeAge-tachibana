@@ -1,12 +1,16 @@
 package org.syju.bronze_age_tachibana;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.DataProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -20,8 +24,11 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+import org.syju.bronze_age_tachibana.data.BronzeWorldGen;
 import org.syju.bronze_age_tachibana.recipes.BronzeProcessingRecipeGen;
 import org.syju.bronze_age_tachibana.registry.*;
+
+import java.util.Set;
 
 import static org.syju.bronze_age_tachibana.registry.Registrate.REGISTRATE;
 
@@ -85,6 +92,18 @@ public class BronzeAgeTachibana {
         if (event.includeServer()) {
             BronzeProcessingRecipeGen.registerAll(event.getGenerator(), event.getGenerator().getPackOutput());
         }
+        event.getGenerator().addProvider(
+                // Tell generator to run only when server data are generating
+                event.includeServer(),
+                (DataProvider.Factory<DatapackBuiltinEntriesProvider>) output -> new DatapackBuiltinEntriesProvider(
+                        output,
+                        event.getLookupProvider(),
+                        // The builder containing the datapack registry objects to generate
+                        new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE, BronzeWorldGen::bootstrap),
+                        // Set of mod ids to generate the datapack registry objects of
+                        Set.of(MODID)
+                )
+        );
     }
 
 
