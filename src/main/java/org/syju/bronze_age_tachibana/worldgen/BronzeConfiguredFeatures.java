@@ -1,8 +1,7 @@
-package org.syju.bronze_age_tachibana.data;
+package org.syju.bronze_age_tachibana.worldgen;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -15,9 +14,9 @@ import org.syju.bronze_age_tachibana.registry.BronzeBlocks;
 
 import java.util.List;
 
-public class BronzeWorldGen {
+public class BronzeConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>>
-        TIN_ORE = key("tin_ore");
+            TIN_ORE = key("tin_ore");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> key(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, BronzeAgeTachibana.asResource(name));

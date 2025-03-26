@@ -1,2 +1,4 @@
-// 1.20.1	2025-03-26T17:20:48.5619438	Registries
+// 1.20.1	2025-03-26T20:20:35.0869712	Registries
+5de6a8a7b1fac2bdab02e81a06e41c3ec590d1af data/bronze_age_tachibana/forge/biome_modifier/tin_ore.json
 5adf85909ec7ecdafc0ae08d4c81ae23ede1f347 data/bronze_age_tachibana/worldgen/configured_feature/tin_ore.json
+ee87c1858430e1d08008e9017a6aef4676ddb020 data/bronze_age_tachibana/worldgen/placed_feature/tin_ore.json

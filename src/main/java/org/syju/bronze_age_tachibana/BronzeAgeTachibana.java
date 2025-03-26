@@ -13,7 +13,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +23,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
-import org.syju.bronze_age_tachibana.data.BronzeWorldGen;
+import org.syju.bronze_age_tachibana.worldgen.BronzeBiomeModifiers;
+import org.syju.bronze_age_tachibana.worldgen.BronzeConfiguredFeatures;
+import org.syju.bronze_age_tachibana.worldgen.BronzePlacedFeatures;
 import org.syju.bronze_age_tachibana.recipes.BronzeProcessingRecipeGen;
 import org.syju.bronze_age_tachibana.registry.*;
 
@@ -64,7 +65,6 @@ public class BronzeAgeTachibana {
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(EventPriority.LOWEST, BronzeAgeTachibana::gatherData);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
@@ -75,7 +75,7 @@ public class BronzeAgeTachibana {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
+        modEventBus.addListener(BronzeAgeTachibana::gatherData);
         // Register the item to a creative tab
 //        modEventBus.addListener(this::addCreative);
 
@@ -99,7 +99,10 @@ public class BronzeAgeTachibana {
                         output,
                         event.getLookupProvider(),
                         // The builder containing the datapack registry objects to generate
-                        new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE, BronzeWorldGen::bootstrap),
+                        new RegistrySetBuilder()
+                                .add(Registries.CONFIGURED_FEATURE, BronzeConfiguredFeatures::bootstrap)
+                                .add(Registries.PLACED_FEATURE, BronzePlacedFeatures::bootstrap)
+                                .add(ForgeRegistries.Keys.BIOME_MODIFIERS, BronzeBiomeModifiers::bootstrap),
                         // Set of mod ids to generate the datapack registry objects of
                         Set.of(MODID)
                 )
