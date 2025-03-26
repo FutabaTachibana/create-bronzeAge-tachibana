@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/bronze"
+    },
+    "R": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "AA",
+    "AR",
+    " R"
+  ],
+  "result": {
+    "item": "bronze_age_tachibana:bronze_axe"
+  },
+  "show_notification": true
+}

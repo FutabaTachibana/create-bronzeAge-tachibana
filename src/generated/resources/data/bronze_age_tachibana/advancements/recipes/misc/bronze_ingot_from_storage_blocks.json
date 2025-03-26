@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_storage_blocks/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:storage_blocks/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bronze_age_tachibana:bronze_ingot_from_storage_blocks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_storage_blocks/bronze",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bronze_age_tachibana:bronze_ingot_from_storage_blocks"
+    ]
+  },
+  "sends_telemetry_event": false
+}

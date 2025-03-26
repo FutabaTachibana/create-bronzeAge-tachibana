@@ -9,6 +9,7 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -23,7 +24,7 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 public abstract class BronzeProcessingRecipeGen extends ProcessingRecipeGen {
-    protected static final List<ProcessingRecipeGen> GENERATORS = new ArrayList<>();
+    protected static final List<RecipeProvider> GENERATORS = new ArrayList<>();
     // Fields provided the supplier of item
     protected static class I {
         static TagKey<Item> bronze() {
@@ -36,11 +37,12 @@ public abstract class BronzeProcessingRecipeGen extends ProcessingRecipeGen {
 
     public static void registerAll(DataGenerator gen, PackOutput output){
         GENERATORS.add(new BronzeItemApplicationRecipeGen(output));
+        GENERATORS.add(new BronzeStandardRecipeGen(output));
 
         gen.addProvider(true, new DataProvider() {
             @Override
             public String getName() {
-                return "Crate: Bronze Age's Processing Recipes";
+                return "CBA's Processing Recipes";
             }
 
             @Override
@@ -79,7 +81,7 @@ public abstract class BronzeProcessingRecipeGen extends ProcessingRecipeGen {
 
 //    @Override
 //    public String getName() {
-//        return "Crate: Bronze Age's Processing Recipes: " + getRecipeType().getId()
+//        return "CBA's Processing Recipes: " + getRecipeType().getId()
 //                .getPath();
 //    }
 }
