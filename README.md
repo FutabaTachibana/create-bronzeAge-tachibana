@@ -17,6 +17,7 @@ Create's visual in-game documentation called 'Ponder' will guide you through all
 # Developer
 ## Contributing for Create: Bronze Age - tachibana
 - Futaba_Tachibana
+- wyykoko
 
 ## Contributed for Create: Bronze Age
 ### Authors
