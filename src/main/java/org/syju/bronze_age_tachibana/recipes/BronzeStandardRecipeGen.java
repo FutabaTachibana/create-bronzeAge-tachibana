@@ -25,6 +25,10 @@ public class BronzeStandardRecipeGen extends RecipeProvider {
         registerNuggetsToIngot(BronzeItems.TIN_INGOT, "nuggets/tin");
         registerIngotsToBlock(BronzeBlocks.TIN_BLOCK, "ingots/tin");
         registerBlockToIngots(BronzeItems.TIN_INGOT, "storage_blocks/tin");
+
+        registerIngotsToBlock(BronzeBlocks.RAW_TIN_BLOCK, "raw_materials/tin");
+        registerBlockToIngots(BronzeItems.RAW_TIN, "storage_blocks/raw_tin");
+
         registerIngotToNuggets(BronzeItems.BRONZE_NUGGET, "ingots/bronze");
         registerNuggetsToIngot(BronzeItems.BRONZE_INGOT, "nuggets/bronze");
         registerIngotsToBlock(BronzeBlocks.BRONZE_BLOCK, "ingots/bronze");

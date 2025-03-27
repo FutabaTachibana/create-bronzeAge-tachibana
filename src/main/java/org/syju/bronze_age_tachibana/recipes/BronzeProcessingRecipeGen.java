@@ -27,17 +27,27 @@ public abstract class BronzeProcessingRecipeGen extends ProcessingRecipeGen {
     protected static final List<RecipeProvider> GENERATORS = new ArrayList<>();
     // Fields provided the supplier of item
     protected static class I {
+        static TagKey<Item> tin() {
+            return AllTags.forgeItemTag("ingots/tin");
+        }
         static TagKey<Item> bronze() {
             return AllTags.forgeItemTag("ingots/bronze");
         }
         static ItemLike bronzeCasing() {
             return BronzeBlocks.BRONZE_CASING.get();
         }
+        static ItemLike bronzeCogwheel() {
+            return BronzeBlocks.BRONZE_COGWHEEL;
+        }
+        static ItemLike bronzeLargeCogwheel() {
+            return BronzeBlocks.BRONZE_LARGE_COGWHEEL;
+        }
     }
 
     public static void registerAll(DataGenerator gen, PackOutput output){
         GENERATORS.add(new BronzeItemApplicationRecipeGen(output));
         GENERATORS.add(new BronzeStandardRecipeGen(output));
+        GENERATORS.add(new BronzePressingRecipeGen(output));
 
         gen.addProvider(true, new DataProvider() {
             @Override
@@ -60,13 +70,22 @@ public abstract class BronzeProcessingRecipeGen extends ProcessingRecipeGen {
     }
 
     // Define package-private methods to register recipes conveniently
-    <T extends ProcessingRecipe<?>> GeneratedRecipe create(String name,
-                                                           UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
-        return create(BronzeAgeTachibana.asResource(name), transform);
-    }
+    // Other `create()` methods inherited `ProcessingRecipeGen (and do not necessary to consider namespace).
+    /**
+     * Create a processing recipe with a single itemstack ingredient, using its id
+     * as the name of the recipe
+     */
     <T extends ProcessingRecipe<?>> GeneratedRecipe create(Supplier<ItemLike> singleIngredient,
                                                            UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
         return create(BronzeAgeTachibana.MODID, singleIngredient, transform);
+    }
+    /**
+     * Create a new processing recipe, with recipe definitions provided by the
+     * function
+     */
+    <T extends ProcessingRecipe<?>> GeneratedRecipe create(String name,
+                                                           UnaryOperator<ProcessingRecipeBuilder<T>> transform) {
+        return create(BronzeAgeTachibana.asResource(name), transform);
     }
 
     // Override those methods to add recipes using namespace bronze_age_tachibana instead create

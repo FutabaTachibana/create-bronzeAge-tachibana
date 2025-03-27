@@ -1,5 +1,6 @@
 package org.syju.bronze_age_tachibana.recipes;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
@@ -13,7 +14,12 @@ import java.util.function.Supplier;
 
 public class BronzeItemApplicationRecipeGen extends BronzeProcessingRecipeGen{
     // Field generate recipes
-    GeneratedRecipe BRASS = woodCasingTag("bronze", I::bronze, I::bronzeCasing);
+    GeneratedRecipe
+            BRASS = woodCasingTag("bronze", I::bronze, I::bronzeCasing),
+            BRONZE_COGWHEEL = create("bronze_cogwheel", b -> b.require(AllBlocks.COGWHEEL)
+            .require(I.bronze()).output(I.bronzeCogwheel())),
+            BRONZE_LARGE_COGWHEEL = create("bronze_large_cogwheel", b -> b.require(AllBlocks.LARGE_COGWHEEL)
+            .require(I.bronze()).output(I.bronzeLargeCogwheel()));
 
     // Helper methods
     protected GeneratedRecipe woodCasing(String type, Supplier<ItemLike> ingredient, Supplier<ItemLike> output) {

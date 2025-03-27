@@ -1,7 +1,6 @@
 package org.syju.bronze_age_tachibana.data;
 
 import com.simibubi.create.AllBlocks;
-import com.simibubi.create.Create;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogCTBehaviour;
@@ -18,6 +17,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import org.syju.bronze_age_tachibana.BronzeAgeTachibana;
 import org.syju.bronze_age_tachibana.config.BronzeCStress;
 import org.syju.bronze_age_tachibana.registry.BronzeBlocks;
 
@@ -56,6 +56,7 @@ public class BronzeBuilderTransformers {
         String blockFolder = large ? "encased_bronze_large_cogwheel" : "encased_bronze_cogwheel";
         String wood = casing.equals("brass") ? "dark_oak" : "spruce";
         String gearbox = casing.equals("brass") ? "brass_gearbox" : "gearbox";
+        // Necessary resources: ?_casing.png | ?_encased_cogwheel_side.png | ?_encased_cogwheel_side_connected.png | ?_gearbox.png
         return encasedBase(b, drop).addLayer(() -> RenderType::cutoutMipped)
                 .onRegister(CreateRegistrate.casingConnectivity((block, cc) -> cc.make(block, casingShift.get(),
                         (s, f) -> f.getAxis() == s.getValue(EncasedCogwheelBlock.AXIS)
@@ -67,18 +68,18 @@ public class BronzeBuilderTransformers {
                     String modelName = c.getName() + suffix;
                     return p.models()
                             .withExistingParent(modelName, p.modLoc("block/" + blockFolder + "/block" + suffix))
-                            .texture("casing", Create.asResource("block/" + casing + "_casing"))
-                            .texture("particle", Create.asResource("block/" + casing + "_casing"))
-                            .texture("4", Create.asResource("block/" + gearbox))
+                            .texture("casing", BronzeAgeTachibana.asResource("block/" + casing + "_casing"))
+                            .texture("particle", BronzeAgeTachibana.asResource("block/" + casing + "_casing"))
+                            .texture("4", BronzeAgeTachibana.asResource("block/" + gearbox))
                             .texture("1", ResourceLocation.withDefaultNamespace("block/stripped_" + wood + "_log_top"))
-                            .texture("side", Create.asResource("block/" + casing + encasedSuffix));
+                            .texture("side", BronzeAgeTachibana.asResource("block/" + casing + encasedSuffix));
                 }, false))
                 .item()
                 .model((c, p) -> p.withExistingParent(c.getName(), p.modLoc("block/" + blockFolder + "/item"))
-                        .texture("casing", Create.asResource("block/" + casing + "_casing"))
-                        .texture("particle", Create.asResource("block/" + casing + "_casing"))
+                        .texture("casing", BronzeAgeTachibana.asResource("block/" + casing + "_casing"))
+                        .texture("particle", BronzeAgeTachibana.asResource("block/" + casing + "_casing"))
                         .texture("1", ResourceLocation.withDefaultNamespace("block/stripped_" + wood + "_log_top"))
-                        .texture("side", Create.asResource("block/" + casing + encasedSuffix)))
+                        .texture("side", BronzeAgeTachibana.asResource("block/" + casing + encasedSuffix)))
                 .build();
     }
 

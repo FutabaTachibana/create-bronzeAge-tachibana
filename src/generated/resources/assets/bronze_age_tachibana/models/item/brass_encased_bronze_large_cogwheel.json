@@ -2,8 +2,8 @@
   "parent": "bronze_age_tachibana:block/encased_bronze_large_cogwheel/item",
   "textures": {
     "1": "minecraft:block/stripped_dark_oak_log_top",
-    "casing": "create:block/brass_casing",
-    "particle": "create:block/brass_casing",
-    "side": "create:block/brass_encased_cogwheel_side_connected"
+    "casing": "bronze_age_tachibana:block/brass_casing",
+    "particle": "bronze_age_tachibana:block/brass_casing",
+    "side": "bronze_age_tachibana:block/brass_encased_cogwheel_side_connected"
   }
 }

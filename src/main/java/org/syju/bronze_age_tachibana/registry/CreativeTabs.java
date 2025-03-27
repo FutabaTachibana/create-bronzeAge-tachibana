@@ -16,28 +16,19 @@ import java.util.List;
 public class CreativeTabs {
     private static final List<RegistryEntry> registerCreativeTabsItems = List.of(
             // Items and blocks...
-            BronzeItems.RAW_TIN,
-            BronzeItems.TIN_INGOT,
-            BronzeItems.TIN_NUGGET,
-            BronzeItems.TIN_SHEET,
-            BronzeItems.BRONZE_INGOT,
-            BronzeItems.BRONZE_NUGGET,
-            BronzeItems.BRONZE_SHEET,
-            BronzeItems.BRONZE_SHOVEL,
-            BronzeItems.BRONZE_PICKAXE,
-            BronzeItems.BRONZE_AXE,
-            BronzeItems.BRONZE_HOE,
-            BronzeItems.BRONZE_SWORD,
-            BronzeItems.BRONZE_HELMET,
-            BronzeItems.BRONZE_CHESTPLATE,
-            BronzeItems.BRONZE_LEGGINGS,
-            BronzeItems.BRONZE_BOOTS,
-            BronzeBlocks.TIN_ORE,
-            BronzeBlocks.DEEPSLATE_TIN_ORE,
-            BronzeBlocks.TIN_BLOCK,
-            BronzeBlocks.BRONZE_BLOCK,
-            BronzeBlocks.BRONZE_COGWHEEL,
-            BronzeBlocks.BRONZE_LARGE_COGWHEEL
+            BronzeItems.TIN_INGOT, BronzeItems.TIN_NUGGET, BronzeBlocks.TIN_BLOCK, BronzeItems.TIN_SHEET,
+            BronzeItems.RAW_TIN, BronzeBlocks.RAW_TIN_BLOCK, BronzeBlocks.TIN_ORE, BronzeBlocks.DEEPSLATE_TIN_ORE,
+
+            BronzeItems.BRONZE_INGOT, BronzeItems.BRONZE_NUGGET, BronzeBlocks.BRONZE_BLOCK, BronzeItems.BRONZE_SHEET,
+
+            BronzeItems.BRONZE_SHOVEL, BronzeItems.BRONZE_PICKAXE, BronzeItems.BRONZE_AXE,
+            BronzeItems.BRONZE_HOE, BronzeItems.BRONZE_SWORD,
+
+            BronzeItems.BRONZE_HELMET, BronzeItems.BRONZE_CHESTPLATE, BronzeItems.BRONZE_LEGGINGS, BronzeItems.BRONZE_BOOTS,
+
+            BronzeBlocks.BRONZE_COGWHEEL, BronzeBlocks.BRONZE_LARGE_COGWHEEL, BronzeBlocks.BRONZE_CASING
+
+
     );
 
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "bronze_age_tachibana" namespace
