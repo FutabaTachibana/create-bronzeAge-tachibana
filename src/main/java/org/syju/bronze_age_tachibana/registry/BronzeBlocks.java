@@ -165,6 +165,24 @@ public class BronzeBlocks {
             .transform(pickaxeOnly())
             .register();
 
+    public static final BlockEntry<EncasedBronzeCogwheelBlock> BRONZE_ENCASED_BRONZE_COGWHEEL = REGISTRATE
+            .block("bronze_encased_bronze_cogwheel", p -> new EncasedBronzeCogwheelBlock(p, false, BronzeBlocks.BRONZE_CASING::get))
+            .properties(p -> p.mapColor(MapColor.TERRACOTTA_BROWN))
+            .transform(BronzeBuilderTransformers.encasedCogwheel("bronze", () -> BronzeSpriteShifts.BRONZE_CASING))
+            .transform(EncasingRegistry.addVariantTo(BronzeBlocks.BRONZE_COGWHEEL))
+            .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCogCTBehaviour(BronzeSpriteShifts.BRONZE_CASING,
+                    Couple.create(BronzeSpriteShifts.BRONZE_ENCASED_COGWHEEL_SIDE,
+                            BronzeSpriteShifts.BRONZE_ENCASED_COGWHEEL_OTHERSIDE))))
+            .transform(pickaxeOnly())
+            .register();
+    public static final BlockEntry<EncasedBronzeCogwheelBlock> BRONZE_ENCASED_BRONZE_LARGE_COGWHEEL = REGISTRATE
+            .block("bronze_encased_bronze_large_cogwheel", p -> new EncasedBronzeCogwheelBlock(p, true, BronzeBlocks.BRONZE_CASING::get))
+            .properties(p -> p.mapColor(MapColor.TERRACOTTA_BROWN))
+            .transform(BronzeBuilderTransformers.encasedLargeCogwheel("bronze", () -> BronzeSpriteShifts.BRONZE_CASING))
+            .transform(EncasingRegistry.addVariantTo(BronzeBlocks.BRONZE_LARGE_COGWHEEL))
+            .transform(pickaxeOnly())
+            .register();
+
 
     public static void initialize() { }
 }

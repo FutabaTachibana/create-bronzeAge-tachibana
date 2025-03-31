@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"parent": "create:block/large_wheels",
 	"textures": {
-		"casing": "create:block/andesite_casing",
+		"casing": "bronze_age_tachibana:block/bronze_casing",
 		"1": "block/stripped_spruce_log_top",
-		"side": "create:block/andesite_encased_cogwheel_side_connected",
+		"side": "bronze_age_tachibana:block/bronze_encased_cogwheel_side_connected",
 		"4": "bronze_age_tachibana:block/bronze_large_cogwheel",
 		"particle": "#casing"
 	},

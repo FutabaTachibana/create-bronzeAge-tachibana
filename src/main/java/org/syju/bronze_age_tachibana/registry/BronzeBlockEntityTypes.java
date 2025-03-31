@@ -23,14 +23,14 @@ public class BronzeBlockEntityTypes {
     public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_BRONZE_COGWHEEL = REGISTRATE
             .blockEntity("encased_bronze_cogwheel", SimpleKineticBlockEntity::new)
             .visual(() -> EncasedBronzeCogVisual::small, false)
-            .validBlocks(BronzeBlocks.BRASS_ENCASED_BRONZE_COGWHEEL)
+            .validBlocks(BronzeBlocks.BRASS_ENCASED_BRONZE_COGWHEEL, BronzeBlocks.BRONZE_ENCASED_BRONZE_COGWHEEL)
             .renderer(() -> EncasedBronzeCogRenderer::small)
             .register();
 
     public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_BRONZE_LARGE_COGWHEEL = REGISTRATE
             .blockEntity("encased_bronze_large_cogwheel", SimpleKineticBlockEntity::new)
             .visual(() -> EncasedBronzeCogVisual::large, false)
-            .validBlocks(BronzeBlocks.BRASS_ENCASED_BRONZE_LARGE_COGWHEEL)
+            .validBlocks(BronzeBlocks.BRASS_ENCASED_BRONZE_LARGE_COGWHEEL, BronzeBlocks.BRONZE_ENCASED_BRONZE_LARGE_COGWHEEL)
             .renderer(() -> EncasedBronzeCogRenderer::large)
             .register();
 

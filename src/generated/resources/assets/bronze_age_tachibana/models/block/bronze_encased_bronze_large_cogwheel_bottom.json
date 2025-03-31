@@ -1,0 +1,10 @@
+{
+  "parent": "bronze_age_tachibana:block/encased_bronze_large_cogwheel/block_bottom",
+  "textures": {
+    "1": "minecraft:block/stripped_spruce_log_top",
+    "4": "bronze_age_tachibana:block/bronze_gearbox",
+    "casing": "bronze_age_tachibana:block/bronze_casing",
+    "particle": "bronze_age_tachibana:block/bronze_casing",
+    "side": "bronze_age_tachibana:block/bronze_encased_cogwheel_side_connected"
+  }
+}

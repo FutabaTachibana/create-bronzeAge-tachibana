@@ -55,7 +55,7 @@ public class BronzeBuilderTransformers {
         String encasedSuffix = "_encased_cogwheel_side" + (large ? "_connected" : "");
         String blockFolder = large ? "encased_bronze_large_cogwheel" : "encased_bronze_cogwheel";
         String wood = casing.equals("brass") ? "dark_oak" : "spruce";
-        String gearbox = casing.equals("brass") ? "brass_gearbox" : "gearbox";
+        String gearbox = casing.equals("brass") ? "brass_gearbox" : "bronze_gearbox";
         // Necessary resources: ?_casing.png | ?_encased_cogwheel_side.png | ?_encased_cogwheel_side_connected.png | ?_gearbox.png
         return encasedBase(b, drop).addLayer(() -> RenderType::cutoutMipped)
                 .onRegister(CreateRegistrate.casingConnectivity((block, cc) -> cc.make(block, casingShift.get(),
