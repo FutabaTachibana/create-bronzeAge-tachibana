@@ -36,14 +36,14 @@ public class CreativeTabs {
 
     public static RegistryObject<CreativeModeTab> BASE_BRONZE_TAB = CREATIVE_MODE_TABS.register(
             "bronze_age", () -> CreativeModeTab.builder()
-                // Set name of tab to display
-                .title(Component.translatable("item_group." + BronzeAgeTachibana.MODID + ".bronze_age"))
-                // Set icon of creative tab
-                .icon(() -> new ItemStack(BronzeItems.BRONZE_INGOT.get()))
-                // Add default items to tab
-                .displayItems((params, output) -> {
-                    registerCreativeTabsItems.forEach(registryEntry -> output.accept((ItemLike) registryEntry.get()));
-                })
-                .build()
+                    // Set name of tab to display
+                    .title(Component.translatable("item_group." + BronzeAgeTachibana.MODID + ".bronze_age"))
+                    // Set icon of creative tab
+                    .icon(() -> new ItemStack(BronzeItems.BRONZE_INGOT.get()))
+                    // Add default items to tab
+                    .displayItems((params, output) -> {
+                        registerCreativeTabsItems.forEach(registryEntry -> output.accept((ItemLike) registryEntry.get()));
+                    })
+                    .build()
     );
 }
